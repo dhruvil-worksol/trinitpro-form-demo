@@ -77,25 +77,41 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f5f7fb] px-6 py-16">
-      <div className="mx-auto max-w-xl">
-        <div className="rounded-3xl bg-white p-8 shadow-sm md:p-10">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-[#00CACE]">
-            TrinitPro
-          </p>
+    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#eef4f8] px-6 py-16">
 
-          <h1 className="text-3xl font-semibold text-slate-900">
-            Secure Contact Form Demo
-          </h1>
+      {/* background decorative shapes */}
+      <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-[#00CACE]/20 blur-3xl" />
 
-          <p className="mt-3 text-sm leading-6 text-slate-600">
-            Testing form validation, honeypot protection, timing checks and
-            Google Apps Script submission.
-          </p>
+      <div className="absolute -bottom-25 -right-20 h-80 w-80 rounded-full bg-cyan-300/20 blur-3xl" />
 
-          <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+      <div className="relative w-full max-w-xl perspective-distant">
+
+        {/* 3D back layer */}
+        <div className="absolute inset-0 translate-x-4 translate-y-5 rounded-4xl bg-[#00CACE]/20 blur-[2px]" />
+
+        {/* Main card */}
+        <div className="relative rounded-4xl border border-white/80 bg-white/90 p-8 shadow-[0_30px_80px_rgba(15,23,42,0.18)] backdrop-blur-xl md:p-10">
+
+          <div className="mb-8">
+            <div className="mb-4 inline-flex items-center rounded-full border border-[#00CACE]/20 bg-[#00CACE]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#009da0]">
+              TrinitPro
+            </div>
+
+            <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
+              Secure Contact Form
+            </h1>
+
+            <p className="mt-3 max-w-md text-sm leading-6 text-slate-500">
+              Production-style form testing with honeypot protection,
+              submission timing and Google Apps Script.
+            </p>
+          </div>
+
+          <form onSubmit={handleSubmit} className="space-y-5">
+
+            {/* honeypot */}
             <div
-              className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden"
+              className="absolute left-[-9999px] h-px w-px overflow-hidden"
               aria-hidden="true"
             >
               <label htmlFor="company_website">
@@ -111,84 +127,94 @@ export default function Home() {
               />
             </div>
 
+            {/* Name */}
             <div>
               <label
                 htmlFor="name"
-                className="mb-2 block text-sm font-medium text-slate-800"
+                className="mb-2 block text-sm font-medium text-slate-700"
               >
                 Name
               </label>
 
-              <input
-                id="name"
-                name="name"
-                type="text"
-                autoComplete="name"
-                required
-                minLength={2}
-                maxLength={80}
-                className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[#00CACE]"
-                placeholder="Your name"
-              />
+              <div className="rounded-2xl bg-slate-100 p-px shadow-inner">
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autoComplete="name"
+                  required
+                  minLength={2}
+                  maxLength={80}
+                  placeholder="Your name"
+                  className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-slate-900 outline-none transition duration-200 placeholder:text-slate-400 focus:border-[#00CACE] focus:shadow-[0_0_0_4px_rgba(0,202,206,0.12)]"
+                />
+              </div>
             </div>
 
+            {/* Email */}
             <div>
               <label
                 htmlFor="email"
-                className="mb-2 block text-sm font-medium text-slate-800"
+                className="mb-2 block text-sm font-medium text-slate-700"
               >
                 Email
               </label>
 
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                maxLength={120}
-                className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[#00CACE]"
-                placeholder="you@company.com"
-              />
+              <div className="rounded-2xl bg-slate-100 p-px shadow-inner">
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  required
+                  maxLength={120}
+                  placeholder="you@company.com"
+                  className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-slate-900 outline-none transition duration-200 placeholder:text-slate-400 focus:border-[#00CACE] focus:shadow-[0_0_0_4px_rgba(0,202,206,0.12)]"
+                />
+              </div>
             </div>
 
+            {/* Message */}
             <div>
               <label
                 htmlFor="message"
-                className="mb-2 block text-sm font-medium text-slate-800"
+                className="mb-2 block text-sm font-medium text-slate-700"
               >
                 Message
               </label>
 
-              <textarea
-                id="message"
-                name="message"
-                autoComplete="off"
-                required
-                minLength={10}
-                maxLength={2000}
-                rows={6}
-                className="w-full resize-none rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-[#00CACE]"
-                placeholder="Tell us about your requirement..."
-              />
+              <div className="rounded-2xl bg-slate-100 p-px shadow-inner">
+                <textarea
+                  id="message"
+                  name="message"
+                  autoComplete="off"
+                  required
+                  minLength={10}
+                  maxLength={2000}
+                  rows={5}
+                  placeholder="Tell us about your requirement..."
+                  className="w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-slate-900 outline-none transition duration-200 placeholder:text-slate-400 focus:border-[#00CACE] focus:shadow-[0_0_0_4px_rgba(0,202,206,0.12)]"
+                />
+              </div>
             </div>
 
+            {/* Button */}
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full rounded-xl bg-[#00CACE] px-5 py-3 font-semibold text-white transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+              className="relative w-full overflow-hidden rounded-2xl bg-[#00CACE] px-5 py-4 font-semibold text-white shadow-[0_12px_30px_rgba(0,202,206,0.35)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_35px_rgba(0,202,206,0.42)] active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isSubmitting ? "Sending..." : "Submit"}
             </button>
 
             {status && (
-              <p
-                className="text-center text-sm font-medium text-slate-700"
+              <div
                 role="status"
                 aria-live="polite"
+                className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-center text-sm font-medium text-slate-700"
               >
                 {status}
-              </p>
+              </div>
             )}
           </form>
         </div>
